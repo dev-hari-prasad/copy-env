@@ -1,0 +1,30 @@
+{
+  "name": "sync-env",
+  "version": "1.0.0",
+  "description": "Sync .env keys into .env.example — zero dependencies, never reads values.",
+  "bin": {
+    "sync-env": "bin/sync-env.js"
+  },
+  "files": [
+    "bin/",
+    "lib/"
+  ],
+  "keywords": [
+    "env",
+    "dotenv",
+    "example",
+    "sync",
+    "cli",
+    "env-example",
+    "security"
+  ],
+  "author": "",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "engines": {
+    "node": ">=16"
+  }
+}

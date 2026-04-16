@@ -1,0 +1,6 @@
+.env
+.env.*
+sync-env-config.json
+logo.png
+.git
+.gitignore
