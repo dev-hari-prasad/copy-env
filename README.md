@@ -2,11 +2,14 @@
   <img src="logo.png" alt="sync-env logo" width="200" />
 </p>
 
+<p align="middle">Stop manually updating your `.env.example` every time you add a new environment variable. Run one command and it's done!</p>
+
+---
+
 # Sync env
 
 Sync `.env` keys into `.env.example` automatically (or file of your choice).
 
-Stop manually updating your `.env.example` every time you add a new environment variable. Run one command and it's done!
 
 ## Install
 
@@ -71,7 +74,7 @@ This file decides which file to read from and which file to write to. You can ch
 
 ---
 
-> Found a issue? [Open an issue on GitHub](https://github.com/YOUR_USERNAME/sync-env/issues) or email me at: [webdev.byhari@gmail.com](mailto:webdev.byhari@gmail.com)
+> Found a issue? [Open an issue on GitHub](https://github.com/dev-hari-prasad/sync-env) or email me at: [webdev.byhari@gmail.com](mailto:webdev.byhari@gmail.com)
 
 
 ## License
