@@ -2,13 +2,11 @@
   <img src="logo.png" alt="sync-env logo" width="200" />
 </p>
 
-<p align="middle">Stop manually updating your `.env.example` every time you add a new environment variable. Run one command and it's done!</p>
+<p align="middle"><b>Sync Env</b></p>
+
+<p align="middle"> <b> Sync .env keys into .env.example automatically (or file of your choice). </b> Stop manually updating your .env.example every time you add a new environment variable. Run one command and it's done!</p>
 
 ---
-
-# Sync env
-
-Sync `.env` keys into `.env.example` automatically (or file of your choice).
 
 
 ## Install
