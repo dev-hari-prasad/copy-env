@@ -1,7 +1,7 @@
 {
   "name": "copy-env",
-  "version": "1.0.0",
-  "description": "Copy .env keys into .env.example — zero dependencies, never reads values.",
+  "version": "1.0.02",
+  "description": "Copy .env keys into .env.example automatically (or file of your choice). Stop manually updating your .env.example every time you add a new environment variable. Run one command and it's done!",
   "bin": {
     "copy-env": "bin/copy-env.js"
   },
