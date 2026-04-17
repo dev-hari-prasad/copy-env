@@ -1,9 +1,9 @@
 {
-  "name": "sync-env",
+  "name": "copy-env",
   "version": "1.0.0",
-  "description": "Sync .env keys into .env.example — zero dependencies, never reads values.",
+  "description": "Copy .env keys into .env.example — zero dependencies, never reads values.",
   "bin": {
-    "sync-env": "bin/sync-env.js"
+    "copy-env": "bin/copy-env.js"
   },
   "files": [
     "bin/",
@@ -13,7 +13,7 @@
     "env",
     "dotenv",
     "example",
-    "sync",
+    "copy",
     "cli",
     "env-example",
     "security"

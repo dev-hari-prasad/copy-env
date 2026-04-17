@@ -1,10 +1,10 @@
 <p align="middle">
-  <img src="logo.png" alt="sync-env logo" width="200" />
+  <img src="logo.png" alt="copy-env logo" width="200" />
 </p>
 
-<p align="middle"><b>Sync Env</b></p>
+<p align="middle"><b>Copy Env</b></p>
 
-<p align="middle"> <b> Sync .env keys into .env.example automatically (or file of your choice). </b> Stop manually updating your .env.example every time you add a new environment variable. Run one command and it's done!</p>
+<p align="middle"> <b> Copy .env keys into .env.example automatically (or file of your choice). </b> Stop manually updating your .env.example every time you add a new environment variable. Run one command and it's done!</p>
 
 ---
 
@@ -12,7 +12,7 @@
 ## Install
 
 ```bash
-npm i -D sync-env
+npm i -D copy-env
 ```
 
 It's reccomended to keep the -D flag when installing, so the cli is only available as a dev dependency.
@@ -22,10 +22,10 @@ It's reccomended to keep the -D flag when installing, so the cli is only availab
 ## Usage
 
 ```bash
-npx sync-env
+npx copy-env
 ```
 
-> On first run, it auto-detects your `.env` and `.env.example`, syncs the keys, and creates a `sync-env-config.json`. If no `.env` is found, it helps you create or locate one.
+> On first run, it auto-detects your `.env` and `.env.example`, syncs the keys, and creates a `copy-env-config.json`. If no `.env` is found, it helps you create or locate one.
 
 
 
@@ -34,7 +34,7 @@ You can also add it to your `package.json` scripts to run it quickly wtih `npm r
 ```json
 {
   "scripts": {
-    "env": "sync-env"
+    "env": "copy-env"
   }
 }
 ```
@@ -50,7 +50,7 @@ You can also add it to your `package.json` scripts to run it quickly wtih `npm r
 
 ## Config
 
-A `sync-env-config.json` is created in your project root after the first run:
+A `copy-env-config.json` is created in your project root after the first run:
 
 ```json
 {
@@ -59,7 +59,17 @@ A `sync-env-config.json` is created in your project root after the first run:
 }
 ```
 
-This file decides which file to read from and which file to write to. You can change it anytime.
+This file decides which file to read from and which file to write to. You can change it anytime by manually editing the `copy-env-config.json` file.
+
+For example, to point to files in a specific directory:
+```json
+{
+  "targetEnv": "./backend/.env",
+  "outputExample": "./backend/.env.example"
+}
+```
+
+By deafult it looks for `.env` and `.env.example` in the current directory eg. root directory where the `copy-env` is installed.
 
 ---
 
@@ -72,7 +82,7 @@ This file decides which file to read from and which file to write to. You can ch
 
 ---
 
-> Found a issue? [Open an issue on GitHub](https://github.com/dev-hari-prasad/sync-env) or email me at: [webdev.byhari@gmail.com](mailto:webdev.byhari@gmail.com)
+> Found a issue? [Open an issue on GitHub](https://github.com/dev-hari-prasad/copy-env) or email me at: [webdev.byhari@gmail.com](mailto:webdev.byhari@gmail.com)
 
 
 ## License

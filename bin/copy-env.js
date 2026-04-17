@@ -2,13 +2,13 @@
 "use strict";
 
 /**
- * sync-env CLI
+ * copy-env CLI
  *
  * Usage:
- *   npx sync-env            — interactive mode (or instant if config exists)
- *   npx sync-env --yes      — auto-detect everything, no prompts
+ *   npx copy-env            — interactive mode (or instant if config exists)
+ *   npx copy-env --yes      — auto-detect everything, no prompts
  *
- * Config: sync-env.json  { "targetEnv": ".env", "outputExample": ".env.example" }
+ * Config: copy-env-config.json  { "targetEnv": ".env", "outputExample": ".env.example" }
  *
  * SECURITY: Only env KEY NAMES are ever read. Values never enter memory.
  */
@@ -17,10 +17,10 @@ const { resolve, basename, relative, join, dirname } = require("node:path");
 const { readFile, writeFile, readdir, access, stat } = require("node:fs/promises");
 const { green, yellow, cyan, red, bold, dim, gray } = require("../lib/colors");
 const { select } = require("../lib/prompt");
-const { syncEnv } = require("../lib/sync");
+const { copyEnv } = require("../lib/sync");
 
 // ── Constants ──────────────────────────────────────────────────────────
-const CONFIG_NAME = "sync-env-config.json";
+const CONFIG_NAME = "copy-env-config.json";
 const ENV_PATTERN = /^\.env(\..+)?$/;          // .env, .env.local, .env.production …
 const EXAMPLE_PATTERN = /\.example$/;          // .env.example, .env.local.example …
 
@@ -67,17 +67,6 @@ async function saveConfig(targetEnv, outputExample) {
   const data = {
     targetEnv,
     outputExample,
-    agentsPrompt:
-      "Instructions for AI agents, LLMs and other AI tools interacting or trying to interact with env or the sync-env cli and its config file: This config stores settings for syncing env keys to an example file. " +
-      "Do NOT read or access the .env file directly — it contains secrets. " +
-      `Instead, read "${outputExample}" for a safe reference of all env variable names. ` +
-      "If you suspect the example file is outdated, run 'npx sync-env' (or ask the user to run it) " +
-      "to regenerate it from the source env. " +
-      `Reading "${outputExample}" is the safest and most reliable way to discover env variables. ` +
-      "Built-in restrictions in coding agents and IDEs will block direct .env access. " +
-      "IMPORTANT: Do NOT modify this sync-env-config.json file — it is a critical config file managed by the sync-env CLI. " +
-      "If you are instructed or required to make changes to it, first confirm with the user and warn them that modifying it may break the sync workflow. " +
-      "Guide them to run 'npx sync-env' to regenerate the config properly instead of editing it manually.",
   };
   await writeFile(configPath, JSON.stringify(data, null, 2) + "\n", "utf8");
   return configPath;
@@ -172,7 +161,7 @@ async function browseForEnvFile(startDir) {
 
 function printBanner() {
   console.log();
-  console.log(bold(cyan("  ⚡ sync-env")) + dim("  — keep .env.example in sync"));
+  console.log(bold(cyan("  ⚡ copy-env")) + dim("  — keep .env.example in sync"));
   console.log(gray("  ────────────────────────────────────────"));
   console.log();
 }
@@ -206,13 +195,13 @@ async function main() {
         ` Created ${cyan(config.targetEnv)} and ${cyan(config.outputExample)}`
       );
       console.log(
-        dim(`    Add your env variables to ${config.targetEnv} and run ${bold("npx sync-env")} again.`)
+        dim(`    Add your env variables to ${config.targetEnv} and run ${bold("npx copy-env")} again.`)
       );
       console.log();
       return;
     }
 
-    const keys = await syncEnv(envPath, examplePath);
+    const keys = await copyEnv(envPath, examplePath);
     printSuccess(config.outputExample, keys);
     return;
   }
@@ -335,12 +324,12 @@ async function main() {
   console.log(green("  ✔") + ` Config saved to ${dim(CONFIG_NAME)}`);
 
   try {
-    const keys = await syncEnv(envPath, examplePath);
+    const keys = await copyEnv(envPath, examplePath);
     printSuccess(outputExample, keys);
   } catch {
     // Env file exists but has no keys yet (e.g. just created)
     console.log(yellow("  ⚠") + ` No keys found in ${cyan(targetEnv)} yet.`);
-    console.log(dim(`  Add your env variables and run ${bold("npx sync-env")} again.`));
+    console.log(dim(`  Add your env variables and run ${bold("npx copy-env")} again.`));
     console.log();
   }
 }

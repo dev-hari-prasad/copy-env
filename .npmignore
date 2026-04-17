@@ -1,6 +1,6 @@
 .env
 .env.*
-sync-env-config.json
+copy-env-config.json
 logo.png
 .git
 .gitignore
