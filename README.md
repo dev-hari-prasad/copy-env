@@ -1,5 +1,5 @@
 <p align="middle">
-  <img src="logo.png" alt="copy-env logo" width="200" />
+  <img src="https://raw.githubusercontent.com/dev-hari-prasad/copy-env/main/logo.png" alt="copy-env logo" width="200" />
 </p>
 
 <p align="middle"><b>Copy Env</b></p>
