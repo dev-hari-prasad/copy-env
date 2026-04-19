@@ -1,6 +1,6 @@
 {
   "name": "copy-env",
-  "version": "1.0.02",
+  "version": "1.0.03",
   "description": "Copy .env keys into .env.example automatically (or file of your choice). Stop manually updating your .env.example every time you add a new environment variable. Run one command and it's done!",
   "bin": {
     "copy-env": "bin/copy-env.js"
